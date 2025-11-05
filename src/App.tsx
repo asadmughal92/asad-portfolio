@@ -1,127 +1,105 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css"; // 👈 this import is REQUIRED
-import { motion } from "framer-motion";
 import {
-  FaNodeJs,
-  FaReact,
-  FaPhp,
-  FaLaravel,
-  FaDatabase,
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-} from "react-icons/fa";
+  SiLaravel,
+  SiPhp,
+  SiNodedotjs,
+  SiMongodb,
+  SiReact,
+  SiMysql,
+  SiTypescript,
+  SiJavascript,
+} from "react-icons/si";
+import "./App.css";
+import { FaMicrosoft } from "react-icons/fa";
+import { SiPostgresql } from "react-icons/si";
 
 const skills = [
-  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-  { name: "React", icon: <FaReact className="text-sky-400" /> },
-  { name: "PHP", icon: <FaPhp className="text-indigo-400" /> },
-  { name: "Laravel", icon: <FaLaravel className="text-red-500" /> },
-  { name: "Database", icon: <FaDatabase className="text-yellow-400" /> },
-  { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-  { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-  { name: "JavaScript", icon: <FaJsSquare className="text-yellow-300" /> },
+  { icon: <SiLaravel />, name: "Laravel" },
+  { icon: <SiPhp />, name: "PHP" },
+  { icon: <SiNodedotjs />, name: "Node.js" },
+  { icon: <SiMongodb />, name: "MongoDB" },
+  { icon: <SiMysql />, name: "MySQL" },
+  { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <SiReact />, name: "React" },
+  { icon: <SiTypescript />, name: "TypeScript" },
+  { icon: <SiJavascript />, name: "JavaScript" },
+  { icon: <FaMicrosoft />, name: "MS Office" }, 
+
 ];
 
 const projects = [
   {
-    name: "Nutricon Accounting System",
-    desc: "Built with Laravel — comprehensive accounting management system.",
+    title: "Nutricon Accounting System",
+    desc: "A complete accounting system built with Laravel.",
     link: "https://mawbynutricon.com/login",
   },
   {
-    name: "SabBachao",
-    desc: "Worked on backend using PHP CodeIgniter for admin panel.",
+    title: "SabBachao",
+    desc: "Worked on backend using PHP CodeIgniter.",
     link: "https://admin.sabbachao.com/",
   },
   {
-    name: "Algo Medical App",
-    desc: "Backend built with Node.js for medical delivery services.",
+    title: "Algo Medical App",
+    desc: "Developed backend using Node.js for medical deliveries.",
     link: "https://algodelivery.com/algothirdpartyapp",
   },
 ];
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 function App() {
   return (
-    
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-poppins flex flex-col items-center justify-center px-6 py-12 space-y-16">
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center"
-      >
-        <h1 className="text-4xl sm:text-5xl font-bold mb-3">
-          Hi, I’m <span className="text-teal-400">Muhammad Asad Azam</span>
-        </h1>
-        <p className="text-gray-400 text-lg">
-          Full Stack Developer — <span className="text-white">specialized in Backend Development</span>
+    <div className="App">
+     <header className="hero">
+  <img src="/asad.jpg" alt="Muhammad Asad Azam" className="profile-pic" />
+
+  <h1 className="fade-in">
+    Hi, I'm <span>Muhammad Asad Azam</span>
+  </h1>
+  <p className="fade-in-delay">
+    Full Stack Developer <span>(Specialized in Backend)</span>
+  </p>
+
+  <p className="bio">
+    With years of experience building web systems using Laravel, Node.js, and modern
+    JavaScript frameworks, I focus on creating fast, scalable, and secure backend solutions.
+  </p>
+</header>
+
+
+      <section className="about">
+        <h2>About Me</h2>
+        <p>
+          I’m a passionate backend-focused full-stack developer with experience
+          in Laravel, Node.js, and modern web technologies. I enjoy creating
+          efficient systems that solve real-world problems.
         </p>
-      </motion.div>
+      </section>
 
-      {/* Skills Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="w-full max-w-3xl text-center"
-      >
-        <h2 className="text-2xl font-semibold mb-6 text-teal-400">Skills</h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-6 justify-items-center">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <div className="text-4xl">{skill.icon}</div>
-              <span className="text-sm text-gray-300">{skill.name}</span>
-            </motion.div>
+      <section className="skills">
+        <h2>Skills</h2>
+        <div className="skills-grid">
+          {skills.map((skill, i) => (
+            <div key={i} className="skill-card slide-up">
+              {skill.icon}
+              <p>{skill.name}</p>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </section>
 
-      {/* Projects Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
-        className="w-full max-w-4xl"
-      >
-        <h2 className="text-2xl font-semibold mb-6 text-teal-400 text-center">
-          Projects
-        </h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.a
-              key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              className="p-5 bg-gray-900 rounded-2xl shadow-md hover:shadow-lg hover:shadow-teal-500/20 transition-all duration-300"
-            >
-              <h3 className="text-lg font-semibold text-white mb-2">{project.name}</h3>
-              <p className="text-gray-400 text-sm">{project.desc}</p>
-            </motion.a>
+      <section className="projects">
+        <h2>Projects</h2>
+        <div className="project-grid">
+          {projects.map((p, i) => (
+            <a key={i} href={p.link} target="_blank" rel="noreferrer" className="project-card fade-in">
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </a>
           ))}
         </div>
-      </motion.div>
+      </section>
 
-      {/* Footer */}
-      <div className="bg-teal-600 text-white p-10 text-3xl font-bold">
-  Tailwind Test
-</div>
-
-      <footer className="text-gray-500 text-sm mt-12">
-        © {new Date().getFullYear()} Muhammad Asad Azam — All rights reserved.
+      <footer className="footer">
+        <p>© {new Date().getFullYear()} Muhammad Asad Azam. All rights reserved.</p>
       </footer>
     </div>
   );
