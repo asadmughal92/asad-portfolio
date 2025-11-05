@@ -8,7 +8,7 @@ import {
   SiTypescript,
   SiJavascript,
 } from "react-icons/si";
-import "./App.css";
+import "./index.css";
 import { FaMicrosoft } from "react-icons/fa";
 import { SiPostgresql } from "react-icons/si";
 
