@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // ✅ For Netlify, use '/' instead of './'
+  base: './', // ✅ For Netlify, use '/' instead of './'
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
